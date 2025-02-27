@@ -1,6 +1,7 @@
 package com.solucaotecnologia.TechCommerce.entities;
 
 
+import com.solucaotecnologia.TechCommerce.dto.ProductDTO;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -37,12 +38,11 @@ public class Product {
 
     }
 
-    public Product(Long id, String name, String description, Double price, String imgUrl) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.imgUrl = imgUrl;
+    public Product(ProductDTO productDTO) {
+        this.name = productDTO.getName();
+        this.description = productDTO.getDescription();
+        this.price = productDTO.getPrice();
+        this.imgUrl = productDTO.getImgUrl();
     }
 
     public Long getId() {
