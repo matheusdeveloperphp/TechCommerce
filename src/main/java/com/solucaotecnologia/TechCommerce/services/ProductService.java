@@ -47,7 +47,7 @@ public class ProductService {
 
 
     @Transactional
-    public ProductDTO update(Long id , ProductDTO dto) {
+    public ProductDTO update(Long id, ProductDTO dto) {
         Product product = productRepository.getReferenceById(id);
         product.setName(dto.getName());
         product.setDescription(dto.getDescription());
@@ -57,7 +57,10 @@ public class ProductService {
     }
 
 
-
+    @Transactional
+    public void delete(Long id) {
+        productRepository.deleteById(id);
+    }
 
 
 }
